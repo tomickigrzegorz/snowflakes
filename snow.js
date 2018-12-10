@@ -9,6 +9,9 @@ class Hohoho {
     this.angle = 0;
     this.partivles = [];
 
+    this.createCanvas();
+    this.resizeWindow();
+
     this.canvas = document.getElementById('canvas');
     this.ctx = this.canvas.getContext('2d');
 
@@ -26,10 +29,17 @@ class Hohoho {
         d: Math.random() * this.ns
       });
     }
-    this.resize();
+
   }
 
-  resize() {
+  createCanvas() {
+    let canv = document.createElement('canvas');
+    canv.id = 'canvas';
+    canv.setAttribute('style', 'position: fixed; top: 0; pointer-events: none;');
+    document.body.appendChild(canv);
+  }
+
+  resizeWindow() {
     window.addEventListener('resize', () => {
       this.W = window.innerWidth;
       this.H = window.innerHeight;
@@ -38,7 +48,7 @@ class Hohoho {
     });
   }
 
-  draw() {
+  drawSnowflakes() {
     return () => {
       setInterval(() => {
         this.ctx.clearRect(0, 0, this.W, this.H);
@@ -50,13 +60,13 @@ class Hohoho {
           this.ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2, true);
         }
         this.ctx.fill();
-        this.update();
+        this.updateSnowflakes();
 
       }, this.interval);
     };
   }
 
-  update() {
+  updateSnowflakes() {
     this.angle += 0.01;
     for (let i = 0; i < this.ns; i++) {
       let p = this.partivles[i];
@@ -102,6 +112,6 @@ const options = {
   interval: 30 // falling speed
 };
 
-let snow = new Hohoho(options).draw();
+let snow = new Hohoho(options).drawSnowflakes();
 
 window.addEventListener('load', snow);

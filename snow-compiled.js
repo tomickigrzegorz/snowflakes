@@ -20,8 +20,10 @@ function () {
     this.snowOpacity = options.snowOpacity;
     this.angle = 0;
     this.partivles = [];
+    this.createCanvas();
+    this.resizeWindow();
     this.canvas = document.getElementById('canvas');
-    this.ctx = canvas.getContext('2d');
+    this.ctx = this.canvas.getContext('2d');
     this.W = window.innerWidth;
     this.H = window.innerHeight;
     this.canvas.width = this.W;
@@ -35,13 +37,19 @@ function () {
         d: Math.random() * this.ns
       });
     }
-
-    this.resize();
   }
 
   _createClass(Hohoho, [{
-    key: "resize",
-    value: function resize() {
+    key: "createCanvas",
+    value: function createCanvas() {
+      var canv = document.createElement('canvas');
+      canv.id = 'canvas';
+      canv.setAttribute('style', 'position: fixed; top: 0; pointer-events: none;');
+      document.body.appendChild(canv);
+    }
+  }, {
+    key: "resizeWindow",
+    value: function resizeWindow() {
       var _this = this;
 
       window.addEventListener('resize', function () {
@@ -52,8 +60,8 @@ function () {
       });
     }
   }, {
-    key: "draw",
-    value: function draw() {
+    key: "drawSnowflakes",
+    value: function drawSnowflakes() {
       var _this2 = this;
 
       return function () {
@@ -74,13 +82,13 @@ function () {
 
           _this2.ctx.fill();
 
-          _this2.update();
+          _this2.updateSnowflakes();
         }, _this2.interval);
       };
     }
   }, {
-    key: "update",
-    value: function update() {
+    key: "updateSnowflakes",
+    value: function updateSnowflakes() {
       this.angle += 0.01;
 
       for (var i = 0; i < this.ns; i++) {
@@ -134,5 +142,5 @@ var options = {
   interval: 30 // falling speed
 
 };
-var snow = new Hohoho(options).draw();
+var snow = new Hohoho(options).drawSnowflakes();
 window.addEventListener('load', snow);
