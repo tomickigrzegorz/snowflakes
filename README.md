@@ -2,7 +2,7 @@
 
 Demo -> <https://tomik23.github.io/snow/>
 
-## Confert to ES5
+## Convert to ES5
 First, install the dependencies:
 ```npm install``` or ```yarn```
 
