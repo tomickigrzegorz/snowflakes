@@ -10,7 +10,7 @@ class Hohoho {
     this.partivles = [];
 
     this.canvas = document.getElementById('canvas');
-    this.ctx = canvas.getContext('2d');
+    this.ctx = this.canvas.getContext('2d');
 
     this.W = window.innerWidth;
     this.H = window.innerHeight;
