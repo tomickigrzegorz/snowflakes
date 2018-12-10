@@ -9,17 +9,14 @@ class Hohoho {
     this.angle = 0;
     this.partivles = [];
 
+
     this.createCanvas();
     this.resizeWindow();
 
     this.canvas = document.getElementById('canvas');
     this.ctx = this.canvas.getContext('2d');
 
-    this.W = window.innerWidth;
-    this.H = window.innerHeight;
-
-    this.canvas.width = this.W;
-    this.canvas.height = this.H;
+    this.getWidth();
 
     for (let i = 0; i < this.ns; i++) {
       this.partivles.push({
@@ -32,6 +29,13 @@ class Hohoho {
 
   }
 
+  getWidth() {
+    this.W = window.innerWidth;
+    this.H = window.innerHeight;
+    this.canvas.width = this.W;
+    this.canvas.height = this.H;
+  }
+
   createCanvas() {
     let canv = document.createElement('canvas');
     canv.id = 'canvas';
@@ -41,10 +45,7 @@ class Hohoho {
 
   resizeWindow() {
     window.addEventListener('resize', () => {
-      this.W = window.innerWidth;
-      this.H = window.innerHeight;
-      this.canvas.width = this.W;
-      this.canvas.height = this.H;
+      this.getWidth();
     });
   }
 
