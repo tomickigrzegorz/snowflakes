@@ -9,7 +9,6 @@ class Hohoho {
     this.angle = 0;
     this.partivles = [];
 
-
     this.createCanvas();
     this.resizeWindow();
 
@@ -26,7 +25,6 @@ class Hohoho {
         d: Math.random() * this.ns
       });
     }
-
   }
 
   getWidth() {
@@ -39,7 +37,10 @@ class Hohoho {
   createCanvas() {
     let canv = document.createElement('canvas');
     canv.id = 'canvas';
-    canv.setAttribute('style', 'position: fixed; top: 0; pointer-events: none;');
+    canv.setAttribute(
+      'style',
+      'position: fixed; top: 0; pointer-events: none;'
+    );
     document.body.appendChild(canv);
   }
 
@@ -62,7 +63,6 @@ class Hohoho {
         }
         this.ctx.fill();
         this.updateSnowflakes();
-
       }, this.interval);
     };
   }
@@ -101,18 +101,17 @@ class Hohoho {
       }
     }
   }
-
 }
 
 const options = {
   canvas: 'canvas',
   snowColor: '255,255,255', // snowflakes color - white
   snowOpacity: '0.6', // snowflakes opacity
-  ns: 300, // the number of snowflakes
+  ns: 200, // the number of snowflakes
   radius: 3, // size snowflakes
   interval: 30 // falling speed
 };
 
 let snow = new Hohoho(options).drawSnowflakes();
 
-window.addEventListener('load', snow);
+window.addEventListener('DOMContentLoaded', snow);

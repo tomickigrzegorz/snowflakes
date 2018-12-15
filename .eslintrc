@@ -1,0 +1,17 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 6
+  },
+  "rules": {
+    "quotes": [2, "single"],
+    "comma-dangle": ["error", "never"],
+    "strict": [2, "never"],
+    "semi": [2, "always"],
+    "max-len": "off"
+  }
+}
