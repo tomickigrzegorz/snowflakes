@@ -1,6 +1,6 @@
 # Snow on the site 
 
-Demo -> <https://tomik23.github.io/snow/>
+Demo -> <https://tomik23.github.io/snowflakes/>
 
 ## Convert to ES5
 First, install the dependencies:
