@@ -5,13 +5,32 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Snow</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+  <title>Snowflakes</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    a {
+      font-size: 200px;
+    }
+  </style>
 </head>
 
 <body>
-  <script src="snow.js"></script>
+  <script>
+    const options = {
+      canvas: 'canvas',
+      // snowflakes color - white
+      snowColor: '255,255,255',
+      // snowflakes opacity
+      snowOpacity: '0.6',
+      // the number of snowflakes
+      ns: 200,
+      // size snowflakes
+      radius: 3,
+      // falling speed
+      interval: 30
+    };
+  </script>
+  <script src="snow-compiled.js"></script>
 </body>
 
 </html>

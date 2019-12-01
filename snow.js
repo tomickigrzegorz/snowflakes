@@ -103,15 +103,6 @@ class Hohoho {
   }
 }
 
-const options = {
-  canvas: 'canvas',
-  snowColor: '255,255,255', // snowflakes color - white
-  snowOpacity: '0.6', // snowflakes opacity
-  ns: 200, // the number of snowflakes
-  radius: 3, // size snowflakes
-  interval: 30 // falling speed
-};
-
-let snow = new Hohoho(options).drawSnowflakes();
-
-window.addEventListener('DOMContentLoaded', snow);
+window.addEventListener('DOMContentLoaded',
+  new Hohoho(options).drawSnowflakes()
+);

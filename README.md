@@ -1,22 +1,36 @@
-# Snow on the site 
+# Snow on the site - [demo](https://tomik23.github.io/snowflakes/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-Demo -> <https://tomik23.github.io/snowflakes/>
-
-## Convert to ES5
+## Clone the repo and install dependencies
 First, install the dependencies:
-```npm install``` or ```yarn```
+```bash
+git clone https://github.com/tomik23/webpack-boilerplate.git
+cd webpack-boilerplate
+npm i
+```
 
-Then start the conversion from es6 to es5:
-```npm run build ``` or ```yarn build```
+## Production build
+```bash
+npm build
+```
 
 ## Snowflakes configure
-```
-const options = {
-  canvas: 'canvas',
-  snowColor: '255,255,255', // snowflakes color - white
-  snowOpacity: '0.6', // snowflakes opacity
-  ns: 300, // the number of snowflakes
-  radius: 3, // size snowflakes
-  interval: 30 // falling speed
-};
+
+```html
+<script>
+  const options = {
+    canvas: 'canvas',
+    // snowflakes color - white
+    snowColor: '255,255,255',
+    // snowflakes opacity
+    snowOpacity: '0.6',
+    // the number of snowflakes
+    ns: 200,
+    // size snowflakes
+    radius: 3,
+    // falling speed
+    interval: 30
+  };
+</script>
+<script src="snow-compiled.js"></script>
 ```

@@ -3,17 +3,14 @@
   "version": "1.0.1",
   "main": "index.js",
   "license": "MIT",
-  "author": {
-    "name": "Grzegorz Tomicki",
-    "email": "gtomik@gmail.com"
-  },
+  "author": "Grzegorz Tomicki",
   "scripts": {
     "build": "babel snow.js --out-file snow-compiled.js --presets minify --no-comments"
   },
   "devDependencies": {
-    "@babel/cli": "^7.6.4",
-    "@babel/core": "^7.6.4",
-    "@babel/preset-env": "^7.6.3",
+    "@babel/cli": "^7.7.4",
+    "@babel/core": "^7.7.4",
+    "@babel/preset-env": "^7.7.4",
     "babel-preset-minify": "^0.5.1"
   }
 }
