@@ -4,8 +4,8 @@
 ## Clone the repo and install dependencies
 First, install the dependencies:
 ```bash
-git clone https://github.com/tomik23/webpack-boilerplate.git
-cd webpack-boilerplate
+git clone https://github.com/tomik23/snowflakes.git
+cd snowflakes
 npm i
 ```
 
