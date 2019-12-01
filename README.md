@@ -17,6 +17,7 @@ npm build
 ## Snowflakes configure
 
 ```html
+<script src="snow-compiled.js"></script>
 <script>
   const options = {
     canvas: 'canvas',
@@ -31,6 +32,8 @@ npm build
     // falling speed
     interval: 30
   };
+  window.addEventListener('DOMContentLoaded',
+    new Hohoho(options).drawSnowflakes()
+  );
 </script>
-<script src="snow-compiled.js"></script>
 ```

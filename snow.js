@@ -102,7 +102,3 @@ class Hohoho {
     }
   }
 }
-
-window.addEventListener('DOMContentLoaded',
-  new Hohoho(options).drawSnowflakes()
-);
