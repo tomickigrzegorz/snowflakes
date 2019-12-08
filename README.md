@@ -20,6 +20,7 @@ npm build
 <script src="snow-compiled.js"></script>
 <script>
   const options = {
+    // id canvas
     canvas: 'canvas',
     // snowflakes color - white
     snowColor: '255,255,255',
