@@ -1,11 +1,6 @@
 class Hohoho {
   constructor(options) {
-    this.canvas = options.canvas;
-    this.ns = options.ns;
-    this.radius = options.radius;
-    this.interval = options.interval;
-    this.snowColor = options.snowColor;
-    this.snowOpacity = options.snowOpacity;
+    Object.assign(this, options);
     this.angle = 0;
     this.partivles = [];
 
@@ -25,6 +20,8 @@ class Hohoho {
         d: Math.random() * this.ns
       });
     }
+
+    this.drawSnowflakes();
   }
 
   getWidth() {
@@ -35,7 +32,7 @@ class Hohoho {
   }
 
   createCanvas() {
-    let canv = document.createElement('canvas');
+    const canv = document.createElement('canvas');
     canv.id = 'canvas';
     canv.setAttribute(
       'style',
@@ -50,27 +47,31 @@ class Hohoho {
     });
   }
 
+  hexTorgb(fullhex) {
+    const hex = fullhex.substring(1, 7);
+    const rgb = `${parseInt(hex.substring(0, 2), 16)}, ${parseInt(hex.substring(2, 4), 16)}, ${parseInt(hex.substring(4, 6), 16)}`;
+    return rgb;
+  }
+
   drawSnowflakes() {
-    return () => {
-      setInterval(() => {
-        this.ctx.clearRect(0, 0, this.W, this.H);
-        this.ctx.fillStyle = `rgba(${this.snowColor},${this.snowOpacity})`;
-        this.ctx.beginPath();
-        for (let i = 0; i < this.ns; i++) {
-          let p = this.partivles[i];
-          this.ctx.moveTo(p.x, p.y);
-          this.ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2, true);
-        }
-        this.ctx.fill();
-        this.updateSnowflakes();
-      }, this.interval);
-    };
+    setInterval(() => {
+      this.ctx.clearRect(0, 0, this.W, this.H);
+      this.ctx.fillStyle = `rgba(${this.hexTorgb(this.snowColor)},${this.snowOpacity})`;
+      this.ctx.beginPath();
+      for (let i = 0; i < this.ns; i++) {
+        const p = this.partivles[i];
+        this.ctx.moveTo(p.x, p.y);
+        this.ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2, true);
+      }
+      this.ctx.fill();
+      this.updateSnowflakes();
+    }, this.interval);
   }
 
   updateSnowflakes() {
     this.angle += 0.01;
     for (let i = 0; i < this.ns; i++) {
-      let p = this.partivles[i];
+      const p = this.partivles[i];
       p.y += Math.cos(this.angle + p.d) + 1 + p.r / 2;
       p.x += Math.sin(this.angle) * 2;
       if (p.x > this.W + 5 || p.x < -5 || p.y > this.H) {
@@ -81,24 +82,24 @@ class Hohoho {
             r: p.r,
             d: p.d
           };
+        } else if (Math.sin(this.angle) > 0) {
+          this.partivles[i] = {
+            x: -5,
+            y: Math.random() * this.H,
+            r: p.r,
+            d: p.d
+          };
         } else {
-          if (Math.sin(this.angle) > 0) {
-            this.partivles[i] = {
-              x: -5,
-              y: Math.random() * this.H,
-              r: p.r,
-              d: p.d
-            };
-          } else {
-            this.partivles[i] = {
-              x: this.W + 5,
-              y: Math.random() * this.H,
-              r: p.r,
-              d: p.d
-            };
-          }
+          this.partivles[i] = {
+            x: this.W + 5,
+            y: Math.random() * this.H,
+            r: p.r,
+            d: p.d
+          };
         }
       }
     }
   }
 }
+
+export default Hohoho;

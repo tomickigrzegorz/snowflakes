@@ -9,6 +9,11 @@ cd snowflakes
 npm i
 ```
 
+## Watch
+```bash
+npm watch
+```
+
 ## Production build
 ```bash
 npm build
@@ -17,24 +22,21 @@ npm build
 ## Snowflakes configure
 
 ```html
-<script src="snow-compiled.js"></script>
 <script>
-  const options = {
-    // id canvas
-    canvas: 'canvas',
-    // snowflakes color - white
-    snowColor: '255,255,255',
-    // snowflakes opacity
-    snowOpacity: '0.6',
-    // the number of snowflakes
-    ns: 200,
-    // size snowflakes
-    radius: 3,
-    // falling speed
-    interval: 30
-  };
-  window.addEventListener('DOMContentLoaded',
-    new Hohoho(options).drawSnowflakes()
-  );
+  window.addEventListener('DOMContentLoaded', function () {
+    new Hohoho({
+      // snowflakes color in hex
+      snowColor: '#ffffff',
+      // snowflakes opacity
+      snowOpacity: '0.6',
+      // the number of snowflakes
+      ns: 200,
+      // size snowflakes
+      radius: 3,
+      // falling speed
+      interval: 30
+    })
+  });
 </script>
+<script src="./snow.min.js"></script>
 ```

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Snowflakes</title>
+    <style>
+      body {
+        background-color: #000;
+      }
+    </style>
+  </head>
+
+  <body>
+    <script>
+      window.addEventListener('DOMContentLoaded', function () {
+        new Hohoho({
+          // snowflakes color - white in hex
+          snowColor: '#ffffff',
+          // snowflakes opacity
+          snowOpacity: '0.6',
+          // the number of snowflakes
+          ns: 100,
+          // size snowflakes
+          radius: 3,
+          // falling speed
+          interval: 30
+        })
+      });
+    </script>
+    <script src="./snow.min.js"></script>
+  </body>
+
+</html>
