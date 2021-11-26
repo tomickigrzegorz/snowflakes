@@ -27,6 +27,7 @@ npm build
 ## Snowflakes configure
 
 ```html
+<script src="./snow.min.js"></script>
 <script>
   new Hohoho({
     // snowflakes color in hex
@@ -41,7 +42,6 @@ npm build
     interval: 30,
   });
 </script>
-<script src="./snow.min.js"></script>
 ```
 
 ## Browsers support
