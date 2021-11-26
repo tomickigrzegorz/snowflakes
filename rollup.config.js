@@ -1,7 +1,7 @@
-import babel from '@rollup/plugin-babel';
+import { babel } from '@rollup/plugin-babel';
+import { terser } from 'rollup-plugin-terser';
 import serve from 'rollup-plugin-serve';
 import livereload from 'rollup-plugin-livereload';
-import { terser } from "rollup-plugin-terser";
 
 const { PRODUCTION } = process.env;
 
@@ -11,14 +11,14 @@ export default {
     file: 'docs/snow.min.js',
     format: 'iife',
     name: 'Hohoho',
-    sourcemap: PRODUCTION ? false : true
+    sourcemap: PRODUCTION ? false : true,
   },
   plugins: [
     babel({
-      exclude: 'node_modules/**',
+      babelHelpers: 'bundled',
     }),
-    terser(),
-    (!PRODUCTION && serve({ open: true, contentBase: ['docs', 'sources'] })),
-    (!PRODUCTION && livereload())
-  ]
+    PRODUCTION && terser(),
+    !PRODUCTION && serve({ open: true, contentBase: ['docs'] }),
+    !PRODUCTION && livereload(),
+  ],
 };

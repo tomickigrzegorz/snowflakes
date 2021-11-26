@@ -4,34 +4,34 @@ class Hohoho {
     this.angle = 0;
     this.partivles = [];
 
-    this.createCanvas();
-    this.resizeWindow();
+    this.canvas();
+    this.resWin();
 
     this.canvas = document.getElementById('canvas');
     this.ctx = this.canvas.getContext('2d');
 
-    this.getWidth();
+    this.getWid();
 
     for (let i = 0; i < this.ns; i++) {
       this.partivles.push({
         x: Math.random() * this.W,
         y: Math.random() * this.H,
         r: Math.random() * this.radius + 1,
-        d: Math.random() * this.ns
+        d: Math.random() * this.ns,
       });
     }
 
-    this.drawSnowflakes();
+    this.drowSF();
   }
 
-  getWidth() {
+  getWid() {
     this.W = window.innerWidth;
     this.H = window.innerHeight;
     this.canvas.width = this.W;
     this.canvas.height = this.H;
   }
 
-  createCanvas() {
+  canvas() {
     const canv = document.createElement('canvas');
     canv.id = 'canvas';
     canv.setAttribute(
@@ -41,22 +41,27 @@ class Hohoho {
     document.body.appendChild(canv);
   }
 
-  resizeWindow() {
+  resWin() {
     window.addEventListener('resize', () => {
-      this.getWidth();
+      this.getWid();
     });
   }
 
-  hexTorgb(fullhex) {
+  h2r(fullhex) {
     const hex = fullhex.substring(1, 7);
-    const rgb = `${parseInt(hex.substring(0, 2), 16)}, ${parseInt(hex.substring(2, 4), 16)}, ${parseInt(hex.substring(4, 6), 16)}`;
+    const rgb = `${parseInt(hex.substring(0, 2), 16)}, ${parseInt(
+      hex.substring(2, 4),
+      16
+    )}, ${parseInt(hex.substring(4, 6), 16)}`;
     return rgb;
   }
 
-  drawSnowflakes() {
+  drowSF() {
     setInterval(() => {
       this.ctx.clearRect(0, 0, this.W, this.H);
-      this.ctx.fillStyle = `rgba(${this.hexTorgb(this.snowColor)},${this.snowOpacity})`;
+      this.ctx.fillStyle = `rgba(${this.h2r(this.snowColor)},${
+        this.snowOpacity
+      })`;
       this.ctx.beginPath();
       for (let i = 0; i < this.ns; i++) {
         const p = this.partivles[i];
@@ -64,11 +69,11 @@ class Hohoho {
         this.ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2, true);
       }
       this.ctx.fill();
-      this.updateSnowflakes();
+      this.updateSF();
     }, this.interval);
   }
 
-  updateSnowflakes() {
+  updateSF() {
     this.angle += 0.01;
     for (let i = 0; i < this.ns; i++) {
       const p = this.partivles[i];
@@ -80,21 +85,21 @@ class Hohoho {
             x: Math.random() * this.W,
             y: -10,
             r: p.r,
-            d: p.d
+            d: p.d,
           };
         } else if (Math.sin(this.angle) > 0) {
           this.partivles[i] = {
             x: -5,
             y: Math.random() * this.H,
             r: p.r,
-            d: p.d
+            d: p.d,
           };
         } else {
           this.partivles[i] = {
             x: this.W + 5,
             y: Math.random() * this.H,
             r: p.r,
-            d: p.d
+            d: p.d,
           };
         }
       }
