@@ -7,30 +7,40 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Snowflakes</title>
     <style>
+      *,
+      *:before,
+      *:after {
+        box-sizing: border-box;
+      }
+
+      html,
       body {
-        background-color: #000;
+        height: 100%;
+      }
+
+      body {
+        margin: 0;
+        background: linear-gradient(#000649, #000000);
       }
     </style>
   </head>
 
   <body>
-    <script>
-      window.addEventListener('DOMContentLoaded', function () {
-        new Hohoho({
-          // snowflakes color - white in hex
-          snowColor: '#ffffff',
-          // snowflakes opacity
-          snowOpacity: '0.6',
-          // the number of snowflakes
-          ns: 100,
-          // size snowflakes
-          radius: 3,
-          // falling speed
-          interval: 30
-        })
-      });
-    </script>
     <script src="./snow.min.js"></script>
+    <script>
+      new Hohoho({
+        // snowflakes color - white in hex
+        snowColor: '#ffffff',
+        // snowflakes opacity
+        snowOpacity: '0.6',
+        // the number of snowflakes
+        ns: 100,
+        // size snowflakes
+        radius: 3,
+        // falling speed
+        interval: 30
+      })
+    </script>
   </body>
 
 </html>
