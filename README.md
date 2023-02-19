@@ -1,4 +1,4 @@
-# Snow on the site - [demo](https://tomik23.github.io/snowflakes/)
+# Snow on the site - [demo](https://tomickigrzegorz.github.io/snowflakes/)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
@@ -7,7 +7,7 @@
 First, install the dependencies:
 
 ```bash
-git clone https://github.com/tomik23/snowflakes.git
+git clone https://github.com/tomickigrzegorz/snowflakes.git
 cd snowflakes
 npm i
 ```
